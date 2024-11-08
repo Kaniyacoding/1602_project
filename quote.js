@@ -1,28 +1,47 @@
+
+//THE CONTAINERS FOR THE TOP 4 INPUT FIELDS
 const divApartments = document.getElementById("Number-of-apartments")
-
 const divFloors = document.getElementById("Number-of-floors")
-
 const divOccupancy = document.getElementById("maximum-Occupancy")
-
 const divElevators = document.getElementById("Number-of-Elevators")
 
+//BUILDING TYPE RADIO BUTTONS
+const Resedentialbutton = document.getElementById('Resedential')
+const Commercialbutton = document.getElementById('Commercial')
+const Industrialbutton = document.getElementById('Industrial')
 
+//resedential
+const floorsinput = document.getElementById("NOFInput")
+const apartmentinput = document.getElementById("apartmentsInput")
+
+//Commercial
+const Maximumoccupancy = document.getElementById ("MOInput")
+
+//Industrial
+const CostPerElevatorOutput = document.getElementById ("NUEInput")
+
+//PRODUCT TIER BUTTONS
+const standardPPE = document.getElementById ("standardinput")
+const premiumPPE = document.getElementById ("premiuminput")
+const exceliumPPE = document.getElementById ("exceliuminput")
+
+
+//FINAL OUTPUT FIELDS
+const elevatorsneededoutput = document.getElementById ("elevatorsrequiredInput")
+const totalcost = document.getElementById ("TCInput")
+const InstillationOutput = document.getElementById ("instillationInput")
+const unitcost = document.getElementById ("CPUInput")
+
+
+//TURNING OFF THE DISPLAY FOR THE TOP 4 INPUT CONTAINERS
 divApartments.style.display = "none"
-
 divFloors.style.display = "none"
-
 divOccupancy.style.display = "none"
-
 divElevators.style.display = "none"
 
 
-const Resedentialbutton = document.getElementById('Resedential')
 
-const Commercialbutton = document.getElementById('Commercial')
-
-const Industrialbutton = document.getElementById('Industrial')
-
-
+//RESIDENTIAL  COMMERCIAL  INDUSTRIAL BUTTONS
 Resedentialbutton.addEventListener("click", () => {
 
     divApartments.style.display = "block"
@@ -35,6 +54,7 @@ Resedentialbutton.addEventListener("click", () => {
 
 })
 
+//FUNCTIONAL
 Commercialbutton.addEventListener("click", () => {
 
     divApartments.style.display = "none"
@@ -47,6 +67,7 @@ Commercialbutton.addEventListener("click", () => {
 
 })
 
+//FUNCTIONAL
 Industrialbutton.addEventListener("click", () => {
 
     divApartments.style.display = "none"
@@ -60,145 +81,152 @@ Industrialbutton.addEventListener("click", () => {
 })
 
 
-//resedential
-const floorsinput = document.getElementById("NOFInput")
-const apartmentinput = document.getElementById("apartmentsInput")
 
-const totalcost = document.getElementById ("TCInput")
-const instillationfee = document.getElementById ("instillationInput")
-const elevatorsneededoutput = document.getElementById ("elevatorsrequiredInput")
-const costperunit = document.getElementById ("CPUInput")
-
+//CALCULATING COSTS
 apartmentinput.addEventListener("input", () => {
-console.log("hello")
+    console.log("hello")
 
-    const averageapartments = apartmentinput.value / floorsinput.value
+    const averageapartments = Math.ceil(apartmentinput.value / floorsinput.value)
     console.log(averageapartments)
-    const requiredelevators = averageapartments/6
+    const requiredelevators = Math.ceil(averageapartments/6)
     
     const Elevatorbanks = Math.ceil(floorsinput.value/20)
     
-    const elevatorsneeded = requiredelevators * Elevatorbanks
+    const elevatorsneeded = Math.ceil(requiredelevators * Elevatorbanks)
    
     console.log(elevatorsneeded)
     
     elevatorsneededoutput.value = elevatorsneeded
 })
 
-//Commercial
-const Maximumoccupancy = document.getElementById ("MOInput")
 
-
+//FUNCTIONAL
 Maximumoccupancy.addEventListener("input", () => {
     console.log("hello")
     
-        const totaloccupants = Maximumoccupancy.value * floorsinput.value
-        
-        const requiredelevators = totaloccupants/200
-        
-        const Elevatorbanks = Math.ceil(floorsinput.value/10)
-        
-        const elevatorsneeded = Math.ceil(requiredelevators * Elevatorbanks + Elevatorbanks)
-       
-        console.log(elevatorsneeded)
-        
-        requiredelevators = elevatorsneeded
-    })
+    const totaloccupants = Maximumoccupancy.value * floorsinput.value
+    
+    const requiredelevators = totaloccupants/200
+    
+    const Elevatorbanks = Math.ceil(floorsinput.value/10)
+    
+    const elevatorsneeded = Math.ceil(requiredelevators * Elevatorbanks + Elevatorbanks)
+    
+    console.log(elevatorsneeded)
+    
+    elevatorsneededoutput.value = elevatorsneeded
+})
 
 
 
     
-    //Industrial
+//Industrial
 
-    const industrialelevators = document.getElementById ("NUEInput")
+const industrialelevators = document.getElementById ("NUEInput")
+
+industrialelevators.addEventListener("input", () => {
+
+    elevatorsneededoutput.value = industrialelevators.value
+
+
+})
+
+
     
-    industrialelevators.addEventListener("input", () => {
 
-        elevatorsneededoutput.value = industrialelevators.value
+//STANDARD  PREMIUM  EXCELIUM BUTTONS
 
-
-    })
-
-
-    const standardPPE = document.getElementById ("standardinput")
-    const CostPerElevatorOutput = document.getElementById ("cost-output")
-    const InstillationOutput = document.getElementById ("instillationInput")
+standardPPE.addEventListener("click", () => {
+    //unit cost
+   //instillation cost
 
 
-    standardPPE.addEventListener("click", () => {
-        //The number of elevators
-        //unit cost
-        //instillation fees
+    const unitcostperelevator = 8000
+    const InstillationCost = 0.10
 
+    //Elevators required
+    const elevatorsrequired = elevatorsneededoutput.value
 
-        const unitcost = 8000
-        const instillationfee = 0.10
+    //declaring the unit cost, pre instillation cost, and instillation fee container  
+    unitcost.value = unitcostperelevator
 
-        //Elevators required
-        
-        //cost per elevator
-        CostPerElevatorOutput.value = unitcost
-        //instillation fees
-        InstillationOutput.value = instillationfee * elevatorsneededoutput.value
-        //the number of elevators required multiplied by the instillation fee.
-        
-        //final cost
-        totalcost.value = elevatorsneededoutput.value * unitcost + InstillationOutput.value
-        //multiplying the number of elevators by the unit cost and added the instillation fee.
-        elevatorsneededoutput.value * unitcost + InstillationOutput.value
+    const preinstillationcost = unitcostperelevator * elevatorsrequired
 
-    })
+    const instillationfeecontainer = preinstillationcost * InstillationCost
+    
+    //instillation fees
+    InstillationOutput.value = instillationfeecontainer
+
+    //final cost
+    const finalcost = (preinstillationcost + instillationfeecontainer)
+    
+    //multiplying the total cost by the final cost
+
+     totalcost.value = finalcost
+
+})
 
 
 
-    const premiumPPE = document.getElementById ("premiuminput")
+    
 
     premiumPPE.addEventListener("click", () => {
-        //The number of elevators
         //unit cost
-        //instillation fees
+        //instillation cost
 
 
-        const unitcost = 12000
-        const instillationfee = 0.15
+        const unitcostperelevator = 12000
+        const InstillationCost = 0.15
 
         //Elevators required
-        
-        //cost per elevator
-        CostPerElevatorOutput.value = unitcost
-        //instillation fees
-        InstillationOutput.value = instillationfee * elevatorsneededoutput.value
-        //the number of elevators required multiplied by the instillation fee.
-        
-        //final cost
-        totalcost.value = elevatorsneededoutput.value * unitcost + InstillationOutput.value
-        //multiplying the number of elevators by the unit cost and added the instillation fee.
-        elevatorsneededoutput.value * unitcost + InstillationOutput.value
+    const elevatorsrequired = elevatorsneededoutput.value
 
+       //declaring the unit cost, pre instillation cost, and instillation fee container 
+    unitcost.value = unitcostperelevator
+
+    const preinstillationcost = unitcostperelevator * elevatorsrequired
+
+    const instillationfeecontainer = preinstillationcost * InstillationCost
+
+    //instillation fees
+    InstillationOutput.value = instillationfeecontainer
+
+    //final cost
+    const finalcost = (preinstillationcost + instillationfeecontainer)
+    
+    //multiplying the total cost by the final cost
+
+     totalcost.value = finalcost
     })
+    
 
-    const exceliumPPE = document.getElementById ("exceliuminput")
-
+    
     exceliumPPE.addEventListener("click", () => {
-        //The number of elevators
         //unit cost
-        //instillation fees
+        //instillation cost
 
 
-        const unitcost = 15000
-        const instillationfee = 0.20
+        const unitcostperelevator = 15000
+        const InstillationCost = 0.20
 
         //Elevators required
-        
-        //cost per elevator
-        CostPerElevatorOutput.value = unitcost
-        //instillation fees
-        InstillationOutput.value = instillationfee * elevatorsneededoutput.value
-        //the number of elevators required multiplied by the instillation fee.
-        
-        //final cost
-        totalcost.value = elevatorsneededoutput.value * unitcost + InstillationOutput.value
-        //multiplying the number of elevators by the unit cost and added the instillation fee.
-        elevatorsneededoutput.value * unitcost + InstillationOutput.value
+    const elevatorsrequired = elevatorsneededoutput.value
+
+    //declaring the unit cost, pre instillation cost, and instillation fee container 
+    unitcost.value = unitcostperelevator
+
+    const preinstillationcost = unitcostperelevator * elevatorsrequired
+
+    const instillationfeecontainer = preinstillationcost * InstillationCost
+
+    //instillation fees
+    InstillationOutput.value = instillationfeecontainer
+    
+    //final cost
+    const finalcost = (preinstillationcost + instillationfeecontainer)
+    
+    //multiplying the total cost by the final cost
+
+     totalcost.value = finalcost
 
     })
