@@ -55,35 +55,35 @@
                 <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
                   <!-- HOME -->
                   <li class="active">
-                    <a href="#top"> HOME </a>
+                    <a href="./index.html#top"> HOME </a>
                   </li>
                   <!-- SERVICES -->
                   <li>
-                    <a href="#services"> SERVICES </a>
+                    <a href="./index.html#services"> SERVICES </a>
                   </li>
                   <!-- WORK -->
                   <li>
-                    <a href="#work"> WORK </a>
+                    <a href="./index.html#work"> WORK </a>
                   </li>
                   <!-- NEWS -->
                   <li>
-                    <a href="#news"> NEWS </a>
+                    <a href="./index.html#news"> NEWS </a>
                   </li>
                   <!-- OVERVIEW -->
                   <li>
-                    <a href="#overview"> OVERVIEW </a>
+                    <a href="./index.html#overview"> OVERVIEW </a>
                   </li>
                   <!-- CLIENTS -->
                   <li>
-                    <a href="#clients"> CLIENTS </a>
+                    <a href="./index.html#portfolio"> PORTFOLIO </a>
                   </li>
-                  <!-- BLOG -->
+                  <!-- CLIENTS -->
                   <li>
-                    <a href="#blog"> BLOG </a>
+                    <a href="./index.html#clients"> CLIENTS </a>
                   </li>
                    <!-- CONTACT -->
                    <li>
-                    <a href="#contact"> CONTACT </a>
+                    <a href="./index.html#contact"> CONTACT </a>
                   </li>
                 </ul>
               </nav>
@@ -96,19 +96,19 @@
     
     <!-- RADIO BUTTONS -->
     <div class="form-check form-check-inline" id="Resedential">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <input class="form-check-input" type="radio" name="group1" id="exampleRadios1" value="option1" checked>
         <label class="form-check-label" for="exampleRadios1">
           Residential
         </label>
       </div>
       <div class="form-check form-check-inline" id="Commercial">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <input class="form-check-input" type="radio" name="group1" id="exampleRadios2" value="option2">
         <label class="form-check-label" for="exampleRadios2">
           Commercial
         </label>
       </div>
       <div class="form-check form-check-inline" id="Industrial">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+        <input class="form-check-input" type="radio" name="group1" id="exampleRadios3" value="option3">
         <label class="form-check-label" for="exampleRadios3">
           Industrial
         </label>
@@ -119,41 +119,41 @@
       
       <div class="form-floating mb-3" id="Number-of-apartments">
         <label for="floatingInput">Number of Apartments</label>
-        <input type="number" class="form-control" id="apartmentsInput" placeholder="Input number">
+        <input type="number" class="form-control" id="apartmentsInput" placeholder="Input number" min="0">
       </div>
 
         <div class="form-floating mb-3" id="Number-of-floors">
             <label for="floatingInput">Number of Floors</label>
-            <input type="number" class="form-control" id="NOFInput" placeholder="Input number">
+            <input type="number" class="form-control" id="NOFInput" placeholder="Input number" min="0">
         </div>
           
         <div class="form-floating mb-3" id="Number-of-Elevators">
             <label for="floatingInput">Number of Elevators</label>
-          <input type="text" class="form-control" id="NUEInput" placeholder="Input number">
+          <input type="number" class="form-control" id="NUEInput" placeholder="Input number" min="0">
         </div>
 
       <div class="form-floating mb-3" id="maximum-Occupancy">
         <label for="floatingInput">Maximum Occupancy</label>
-        <input type="text" class="form-control" id="MOInput" placeholder="Input number">
+        <input type="number" class="form-control" id="MOInput" placeholder="Input number" min="0">
     </div>
 
         <!-- /INPUTS -->
         <div style="margin-top: 20px; margin-bottom: 60px;"></div>
         <!-- RADIO BUTTONS -->
 <div class="form-check form-check-inline" id="Standard">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="standardinput" value="option1" checked>
+        <input class="form-check-input" type="radio" name="group2" id="standardinput" value="option1" checked>
         <label class="form-check-label" for="exampleRadios1">
           Standard
         </label>
       </div>
       <div class="form-check form-check-inline" id="Premium">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="premiuminput" value="option2">
+        <input class="form-check-input" type="radio" name="group2" id="premiuminput" value="option2">
         <label class="form-check-label" for="exampleRadios2">
           Premium
         </label>
       </div>
       <div class="form-check form-check-inline" id="Excelium">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exceliuminput" value="option3">
+        <input class="form-check-input" type="radio" name="group2" id="exceliuminput" value="option3">
         <label class="form-check-label" for="exampleRadios3">
           Excelium
         </label>
@@ -164,22 +164,22 @@
 
       <div class="form-floating mb-3" id="Elevators-Required">
         <label for="floatingInput">Elevators Required</label>
-        <input type="text" class="form-control" id="elevatorsrequiredInput" placeholder="Input number">
+        <input type="text" class="form-control" id="elevatorsrequiredInput" placeholder="Input number" min="0" readonly>
     </div>
 
       <div class="form-floating mb-3" id="CPU">
         <label for="floatingInput">Cost Per Unit</label>
-        <input type="text" class="form-control" id="CPUInput" placeholder="Input number">
+        <input type="text" class="form-control" id="CPUInput" placeholder="Input number" min="0" readonly>
     </div>
          
           <div class="form-floating mb-3" id="instillation-fees">
             <label for="floatingInput">Instillation Fees</label>
-            <input type="text" class="form-control" id="instillationInput" placeholder="Input number">
+            <input type="text" class="form-control" id="instillationInput" placeholder="Input number" min="0" readonly>
         </div>
            
       <div class="form-floating mb-3" id="Total-Cost">
         <label for="floatingInput">Total Cost</label>
-        <input type="text" class="form-control" id="TCInput" placeholder="Input number">
+        <input type="text" class="form-control" id="TCInput" placeholder="Input number" min="0" readonly>
     </div>
 
 <!-- /INPUTS -->
